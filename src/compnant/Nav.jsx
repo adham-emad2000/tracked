@@ -1,15 +1,14 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom"; // لـ
 import logo from "../logo/logo.jpg";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  // حالة الـ Theme (بنجيبها من المتصفح لو موجودة، أو بنخليها فاتح كافتراضي)
   const [theme, setTheme] = useState(
     localStorage.getItem("theme") ? localStorage.getItem("theme") : "light",
   );
 
-  // الكود ده بيتنفذ كل مرة الـ theme يتغير عشان يطبق الكلاس ويحفظ في المتصفح
   useEffect(() => {
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
@@ -19,7 +18,6 @@ const Navbar = () => {
     localStorage.setItem("theme", theme);
   }, [theme]);
 
-  // دالة تغيير اللون
   const toggleTheme = () => {
     setTheme(theme === "light" ? "dark" : "light");
   };
@@ -28,29 +26,29 @@ const Navbar = () => {
     <nav className="bg-[var(--bg-main)]/90 backdrop-blur-md shadow-lg border-b border-[var(--border-color)] w-full sticky top-0 z-50 transition-colors duration-400">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          {/* جزء اللوجو */}
           <div className="flex-shrink-0 flex items-center">
-            <img
-              className="h-16 sm:h-20 w-auto object-contain cursor-pointer"
-              src={logo}
-              alt="Company Logo"
-            />
+            <Link to="/">
+              <img
+                className="h-16 sm:h-20 w-auto object-contain cursor-pointer"
+                src={logo}
+                alt="Company Logo"
+              />
+            </Link>
           </div>
 
-          {/* اللينكات وزرار الألوان (شاشات كبيرة) */}
           <div className="hidden md:flex items-center space-x-8 rtl:space-x-reverse">
-            <a
-              href="#"
+            <Link
+              to="/"
               className="text-[var(--text-main)] hover:text-[var(--color-primary)] font-bold transition duration-300"
             >
               Home
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              to="/about"
               className="text-[var(--text-main)] hover:text-[var(--color-primary)] font-bold transition duration-300"
             >
               About Us
-            </a>
+            </Link>
             <a
               href="#"
               className="text-[var(--text-main)] hover:text-[var(--color-primary)] font-bold transition duration-300"
@@ -58,14 +56,12 @@ const Navbar = () => {
               Contact Us
             </a>
 
-            {/* زرار تبديل اللون (شمس وقمر) */}
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-full bg-[var(--bg-surface)] border border-[var(--border-color)] text-[var(--color-primary)] hover:scale-110 transition-transform duration-300 shadow-sm"
+              className="p-2 rounded-full bg-[var(--bg-surface)] border border-[var(--border-color)] text-[var(--color-primary)] hover:scale-110 transition-transform duration-300 shadow-sm cursor-pointer"
               title="Toggle Theme"
             >
               {theme === "light" ? (
-                // أيقونة القمر (للوضع الغامق)
                 <svg
                   className="w-5 h-5"
                   fill="currentColor"
@@ -74,7 +70,6 @@ const Navbar = () => {
                   <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
                 </svg>
               ) : (
-                // أيقونة الشمس (للوضع الفاتح)
                 <svg
                   className="w-5 h-5"
                   fill="none"
@@ -92,11 +87,10 @@ const Navbar = () => {
             </button>
           </div>
 
-          {/* الموبايل: زرار المنيو وزرار اللون */}
           <div className="md:hidden flex items-center gap-4">
             <button
               onClick={toggleTheme}
-              className="text-[var(--color-primary)]"
+              className="text-[var(--color-primary)] cursor-pointer"
             >
               {theme === "light" ? (
                 <svg
@@ -125,7 +119,7 @@ const Navbar = () => {
 
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-[var(--text-main)] hover:text-[var(--color-primary)] focus:outline-none"
+              className="text-[var(--text-main)] hover:text-[var(--color-primary)] focus:outline-none cursor-pointer"
             >
               <svg
                 className="h-8 w-8"
@@ -154,22 +148,23 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* قائمة الموبايل */}
       {isOpen && (
         <div className="md:hidden bg-[var(--bg-surface)] border-t border-[var(--border-color)] absolute w-full left-0 top-20 shadow-xl transition-colors duration-400">
           <div className="px-4 pt-2 pb-4 space-y-1 text-center">
-            <a
-              href="#"
+            <Link
+              to="/"
+              onClick={() => setIsOpen(false)}
               className="block px-3 py-3 text-[var(--text-main)] hover:text-[var(--color-primary)] font-bold rounded-md"
             >
               Home
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              to="/about"
+              onClick={() => setIsOpen(false)}
               className="block px-3 py-3 text-[var(--text-main)] hover:text-[var(--color-primary)] font-bold rounded-md"
             >
               About Us
-            </a>
+            </Link>
             <a
               href="#"
               className="block px-3 py-3 text-[var(--text-main)] hover:text-[var(--color-primary)] font-bold rounded-md"

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"; // استيراد الـ Link للتوجيه
 import logo from "../logo/logo.jpg";
 
 function Footer() {
@@ -12,11 +13,13 @@ function Footer() {
           {/* العمود الأول: اللوجو ونبذة سريعة */}
           <div className="space-y-5">
             <div className="flex items-center gap-3">
-              <img
-                src={logo}
-                alt="Company Logo"
-                className="h-14 w-auto object-contain rounded-xl shadow-md border border-slate-200 dark:border-[var(--border-color)] bg-white p-1"
-              />
+              <Link to="/">
+                <img
+                  src={logo}
+                  alt="Company Logo"
+                  className="h-14 w-auto object-contain rounded-xl shadow-md border border-slate-200 dark:border-[var(--border-color)] bg-white p-1 cursor-pointer"
+                />
+              </Link>
               <span className="text-2xl font-black text-slate-900 dark:text-[var(--text-main)] tracking-wider">
                 HOOT TRACK
               </span>
@@ -26,9 +29,8 @@ function Footer() {
               high-performance spare parts, and reliable industrial solutions.
             </p>
 
-            {/* أيقونات السوشيال ميديا (روش وتفاعلية وظاهرة بقوة في النور والضلمة) */}
+            {/* أيقونات السوشيال ميديا */}
             <div className="flex items-center gap-3 pt-2">
-              {/* فيسبوك */}
               <a
                 href="https://www.facebook.com"
                 target="_blank"
@@ -45,7 +47,6 @@ function Footer() {
                 </svg>
               </a>
 
-              {/* انستجرام */}
               <a
                 href="https://www.instagram.com"
                 target="_blank"
@@ -66,7 +67,6 @@ function Footer() {
                 </svg>
               </a>
 
-              {/* إيميل (Gmail) */}
               <a
                 href="mailto:hoottrack@gmail.com"
                 className="w-11 h-11 rounded-xl bg-slate-100 dark:bg-[var(--bg-main)] border border-slate-200 dark:border-[var(--border-color)] flex items-center justify-center text-slate-800 dark:text-[var(--text-main)] hover:bg-[var(--color-primary)] hover:text-slate-900 hover:border-[var(--color-primary)] transition-all duration-300 shadow-sm hover:scale-110"
@@ -96,20 +96,20 @@ function Footer() {
             </h4>
             <ul className="space-y-3">
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="/"
                   className="text-sm text-slate-600 dark:text-[var(--text-muted)] hover:text-[var(--color-primary)] font-medium transition-colors"
                 >
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#products"
+                <Link
+                  to="/categories"
                   className="text-sm text-slate-600 dark:text-[var(--text-muted)] hover:text-[var(--color-primary)] font-medium transition-colors"
                 >
                   Products & Fleet
-                </a>
+                </Link>
               </li>
               <li>
                 <a
@@ -193,7 +193,7 @@ function Footer() {
                   ></path>
                 </svg>
                 <a
-                  href="tel:01140503271"
+                  href="tel:01140503274"
                   className="text-slate-900 dark:text-[var(--text-main)] hover:text-[var(--color-primary)] transition-colors font-bold tracking-wide text-base"
                 >
                   01140503274

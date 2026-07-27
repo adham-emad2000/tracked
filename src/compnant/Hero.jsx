@@ -1,10 +1,9 @@
 import React from "react";
-import loader from "../logo/loader.png";
+import loader from "../logo/xm.png";
 
 function Hero() {
   return (
     <div className="relative flex flex-col-reverse lg:flex-row items-center min-h-[85vh] bg-[var(--bg-main)] overflow-hidden">
-      {/* Text Section (جزء الكلام) */}
       <div className="w-full lg:w-1/2 px-6 sm:px-12 lg:px-24 py-16 flex flex-col justify-center z-10">
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[var(--text-main)] leading-tight mb-6 animate-fade-up">
           Your Partner in <br />
@@ -20,7 +19,6 @@ function Hero() {
           work.
         </p>
 
-        {/* Buttons (الزراير) */}
         <div
           className="flex flex-col sm:flex-row items-start gap-4 animate-fade-up"
           style={{ animationDelay: "0.4s" }}
@@ -40,15 +38,12 @@ function Hero() {
         </div>
       </div>
 
-      {/* Image Section (جزء المعدات بالشكل العائم الهادي) */}
       <div
         className="w-full lg:w-1/2 h-[50vh] lg:h-[85vh] flex items-center justify-center relative p-8 animate-fade-up"
         style={{ animationDelay: "0.3s" }}
       >
-        {/* دائرة الإضاءة الخفيفة في الخلفية */}
         <div className="absolute w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] bg-[var(--color-primary)] opacity-10 rounded-full blur-[80px]"></div>
 
-        {/* صورة اللودر (بتأثيرات الظل والأنيميشن البسيط) */}
         <img
           src={loader}
           alt="Minimalist Yellow Loader"

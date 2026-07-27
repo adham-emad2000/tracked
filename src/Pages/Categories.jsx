@@ -15,10 +15,8 @@ function Categories() {
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
 
-  // الأوبشنز المؤقتة اللي هيختار منها
   const categoryOptions = ["all", "x", "y", "z", "n", "r"];
 
-  // فلترة المنتجات بناءً على الاختيار من القائمة
   const filteredProducts =
     selectedCategory === "all"
       ? productsList
@@ -35,7 +33,6 @@ function Categories() {
           <div className="w-16 h-1.5 bg-[var(--color-primary)] mx-auto rounded-full shadow-[0_0_15px_rgba(234,179,8,0.4)]"></div>
         </div>
 
-        {/* قائمة الـ Options (Select Menu) المودرن */}
         <div className="flex justify-center mb-14">
           <div className="relative w-full max-w-xs">
             <select
@@ -58,14 +55,12 @@ function Categories() {
                 </option>
               ))}
             </select>
-            {/* سهم صغير شكلة شيك للـ Dropdown */}
             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-[var(--color-primary)]">
               ▼
             </div>
           </div>
         </div>
 
-        {/* شبكة المنتجات */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {productsList.length > 0 ? (
             productsList.map((product) => (
@@ -112,7 +107,6 @@ function Categories() {
         </div>
       </div>
 
-      {/* نافذة الـ Pop-up للتفاصيل */}
       {selectedProduct && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
           <div
