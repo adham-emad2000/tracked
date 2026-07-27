@@ -196,7 +196,7 @@ function Footer() {
                   href="tel:01140503271"
                   className="text-slate-900 dark:text-[var(--text-main)] hover:text-[var(--color-primary)] transition-colors font-bold tracking-wide text-base"
                 >
-                  01140503271
+                  01140503274
                 </a>
               </p>
             </div>
