@@ -47,7 +47,8 @@ function Partners() {
               <img
                 src={partner.logo}
                 alt={`${partner.name} Logo`}
-                className="max-h-16 md:max-h-20 w-auto object-contain transition-all duration-500 cursor-pointer grayscale opacity-50 hover:grayscale-0 hover:opacity-100 hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.05)] hover:-translate-y-2 hover:scale-105"
+                /* شيلنا الـ grayscale والـ opacity عشان الصور تفضل منورة دايماً */
+                className="max-h-16 md:max-h-20 w-auto object-contain transition-all duration-500 cursor-pointer hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.05)] hover:-translate-y-2 hover:scale-105"
                 title={partner.name}
               />
             </div>
