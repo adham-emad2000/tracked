@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* الوضع الفاتح - الكلاسيك الأبيض (الأساسي) */
+  :root {
+    --bg-main: #f9fafb; /* خلفية رمادي فاتح جداً */
+    --bg-surface: #ffffff; /* خلفية بيضاء نقية للكروت */
+    --color-primary: #eab308; /* الأصفر */
+    --color-primary-hover: #facc15;
+    --text-main: #1f2937; /* نص رمادي غامق */
+    --text-muted: #4b5563; /* نص فرعي */
+    --border-color: #e5e7eb; /* حدود فاتحة */
+  }
+
+  /* الوضع الغامق - المودرن (لما ندوس على الزرار) */
+  .dark {
+    --bg-main: #0f172a; /* كحلي غامق */
+    --bg-surface: #1e293b; /* كحلي أفتح شوية */
+    --color-primary: #eab308;
+    --color-primary-hover: #facc15;
+    --text-main: #f8fafc; /* أبيض ساطع */
+    --text-muted: #94a3b8; /* رمادي هادي */
+    --border-color: #1e293b; /* حدود غامقة */
+  }
+
+  /* انتقال ناعم لما تبدل بين الألوان */
+  body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    transition:
+      background-color 0.4s ease,
+      color 0.4s ease;
+  }
+}
+
+/* --- الحركات (الأنيميشن اللي ضفناها قبل كده) --- */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+.animate-scroll {
+  animation: scroll 20s linear infinite;
+}
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-up {
+  animation: fadeUp 1s ease-out forwards;
+}
