@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom"; // لـ
+import { Link } from "react-router-dom";
 import logo from "../logo/logo.jpg";
 
 const Navbar = () => {
@@ -49,12 +49,13 @@ const Navbar = () => {
             >
               About Us
             </Link>
-            <a
-              href="#"
+            {/* التعديل هنا لشاشات الكمبيوتر */}
+            <Link
+              to="/contact"
               className="text-[var(--text-main)] hover:text-[var(--color-primary)] font-bold transition duration-300"
             >
               Contact Us
-            </a>
+            </Link>
 
             <button
               onClick={toggleTheme}
@@ -165,12 +166,14 @@ const Navbar = () => {
             >
               About Us
             </Link>
-            <a
-              href="#"
+            {/* التعديل هنا للموبايل */}
+            <Link
+              to="/contact"
+              onClick={() => setIsOpen(false)}
               className="block px-3 py-3 text-[var(--text-main)] hover:text-[var(--color-primary)] font-bold rounded-md"
             >
               Contact Us
-            </a>
+            </Link>
           </div>
         </div>
       )}

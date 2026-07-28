@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"; // استيراد Link للتحويل السلس بين الصفحات
 import loader from "../logo/xm.png";
 
 function Hero() {
@@ -23,18 +24,21 @@ function Hero() {
           className="flex flex-col sm:flex-row items-start gap-4 animate-fade-up"
           style={{ animationDelay: "0.4s" }}
         >
-          <a
-            href="#contact"
-            className="w-full sm:w-auto px-8 py-4 bg-[var(--color-primary)] text-slate-900 font-bold text-center rounded hover:bg-[var(--color-primary-hover)] transition duration-300 shadow-[0_4px_14px_0_rgba(234,179,8,0.2)]"
+          {/* زرار Contact Us يوديك لصفحة التواصل */}
+          <Link
+            to="/contact"
+            className="w-full sm:w-auto px-8 py-4 bg-[var(--color-primary)] text-slate-900 font-bold text-center rounded hover:bg-[var(--color-primary-hover)] transition duration-300 shadow-[0_4px_14px_0_rgba(234,179,8,0.2)] cursor-pointer"
           >
             Contact Us
-          </a>
-          <a
-            href="#services"
-            className="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-slate-700 text-[var(--text-main)] font-bold text-center rounded hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition duration-300"
+          </Link>
+
+          {/* زرار Explore Services يوديك لصفحة الكاتجوريز أو المنتجات */}
+          <Link
+            to="/categories"
+            className="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-slate-700 text-[var(--text-main)] font-bold text-center rounded hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition duration-300 cursor-pointer"
           >
             Explore Services
-          </a>
+          </Link>
         </div>
       </div>
 

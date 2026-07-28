@@ -11,7 +11,8 @@ import Navbar from "./compnant/Nav";
 import Partners from "./compnant/Partner";
 import Products from "./compnant/Products";
 import Categories from "./Pages/Categories";
-import About from "./Pages/About"; //
+import About from "./Pages/About";
+import Contact from "./Pages/Contact";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -47,6 +48,9 @@ function App() {
           <Route path="/categories" element={<Categories />} />
 
           <Route path="/about" element={<About />} />
+
+          {/* 2. ضفنا الراوت بتاع صفحة التواصل هنا */}
+          <Route path="/contact" element={<Contact />} />
         </Routes>
         <Footer />
       </div>

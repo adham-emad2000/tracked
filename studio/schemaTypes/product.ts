@@ -1,27 +1,33 @@
-import {defineField, defineType} from 'sanity'
-
-export default defineType({
+export default {
   name: 'product',
-  title: 'Product', // ده الاسم اللي هيظهرلك في اللوحة
+  title: 'Product',
   type: 'document',
   fields: [
-    defineField({
+    {
       name: 'name',
-      title: 'Product Name', // خانة اسم المنتج
+      title: 'Product Name',
       type: 'string',
-    }),
-    defineField({
+      validation: (Rule: any) => Rule.required(),
+    },
+    {
       name: 'image',
-      title: 'Product Image', // خانة الصورة
+      title: 'Product Image',
       type: 'image',
       options: {
-        hotspot: true, // عشان تقدر تقص وتظبط الصورة من الداشبورد
+        hotspot: true, // بيسمحلك تظبط أبعاد الصورة (Crop) من الداشبورد
       },
-    }),
-    defineField({
+    },
+    {
       name: 'description',
-      title: 'Description', // خانة الوصف
-      type: 'text', // استخدمنا text بدل string عشان يفتحلك مربع كبير تكتب فيه براحتك
-    }),
+      title: 'Description',
+      type: 'text',
+    },
+    {
+      name: 'category',
+      title: 'Category',
+      type: 'reference',
+      to: [{type: 'category'}], // ده السطر اللي بيربط المنتج بقسم معين
+      description: 'اختر القسم الخاص بهذا المنتج', // ملاحظة صغيرة تظهر للأدمن
+    },
   ],
-})
+}
